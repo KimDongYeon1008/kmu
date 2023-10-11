@@ -1,7 +1,7 @@
 package rpg;
 import java.util.Scanner;     // 플레이어의 입력을 받기 위한 Scanner import
 
-public class test {
+public class TextRPG1 {
 	// 플레어이와 적의 정보를 담기 위한 전역변수 선언
 	static int hero_level, hero_power, hero_hp, hero_defense, hero_mp, hero_experience, hero_money;
 	static int monster_hp, monster_defense, monster_power, monster_mp, monster_level,

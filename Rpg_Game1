@@ -217,8 +217,8 @@ class Hero {
 				}
 				
 				case "궁수" -> {
-					System.out.println("1. 정밀사");
-					System.out.println("2. 속사");
+					System.out.println("1. 정확한 사격");
+					System.out.println("2. 재빠른 사격");
 					System.out.println("3. 트릭샷");
 					System.out.print("공격 번호를 입력하세요 : ");
 					switch (in.nextInt()) {

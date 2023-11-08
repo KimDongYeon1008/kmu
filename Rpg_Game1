@@ -136,7 +136,7 @@ class Hero {
 		int sum = level * 10 + power * 30;
 		boolean hit = true;
 		
-		System.out.println(name + "의 공격입니다.");
+		System.out.println(this.name + "의 공격입니다.");
 		while (true) {
 			switch (job) {
 				case "전사" -> {
@@ -151,25 +151,20 @@ class Hero {
 								System.out.println("레벨이 낮아서 사용할 수 없습니다.");
 								continue;
 							}
-						
 							if (name == "들개")
 								sum *= 2;
 						}
-						
 						case 3 -> {
 							if (level < 7) {
 								System.out.println("레벨이 낮아서 사용할 수 없습니다.");
 								continue;
 							}
-							
 							if (name == "멧돼지")
 								sum *= 2;
 						}
-						
 						case 4 -> {
 							System.out.println("HP가 " + 3 * level + " 감소했습니다.");
 							hp -= 3 * level;
-
 							sum = (r.nextInt(10) >= 5) ? sum * 4 : 0;
 						}
 					}
@@ -185,116 +180,73 @@ class Hero {
 						case 1 -> {
 							if (mp < 2) {
 								System.out.println("MP가 부족합니다.");
-								continue;
-							}
-							
+								continue; }
 							mp -= 2;
 						}
-					
 						case 2 -> {
 							if (level < 3) {
 								System.out.println("레벨이 낮아서 사용할 수 없습니다.");
-								continue;
-							}
-							
+								continue; }
 							if (mp < 3) {
 								System.out.println("MP가 부족합니다.");
-								continue;
-							}
-							
+								continue; }
 							mp -= 3;
-						
 							if (name == "들개")
 								sum *= 2;
 						}
-						
 						case 3 -> {
 							if (level < 7) {
 								System.out.println("레벨이 낮아서 사용할 수 없습니다.");
-								continue;
-							}
-							
+								continue; }
 							if (mp < 4) {
 								System.out.println("MP가 부족합니다.");
-								continue;
-							}
-							
+								continue; }
 							mp -= 4;
-							
 							if (name == "멧돼지")
 								sum *= 2;
 						}
-						
 						case 4 -> {
 							hit = false;
-							
 							System.out.println("MP가 " + level + " 회복되었습니다.");
 							mp += level;
-							
 							sum = 0;
 						}
 					}
 				}
 				
 				case "궁수" -> {
-					System.out.println("1. 정확한 사격");
-					System.out.println("2. 재빠른 사격");
+					System.out.println("1. 재빠른 사격");
+					System.out.println("2. 정확한 사격");
 					System.out.println("3. 트릭샷");
-					System.out.println("4. 호흡 고르기");
+					System.out.println("4. 비상식량");
 					System.out.print("공격 번호를 입력하세요 : ");
 					switch (in.nextInt()) {
-						case 1 -> {
-							if (mp < 1) {
-								System.out.println("MP가 부족합니다.");
-								continue;
-							}
-							
-							mp -= 1;
-						}
-					
 						case 2 -> {
 							if (level < 3) {
 								System.out.println("레벨이 낮아서 사용할 수 없습니다.");
-								continue;
-							}
-							
-							if (mp < 2) {
+								continue; }
+							if (mp < 1) {
 								System.out.println("MP가 부족합니다.");
-								continue;
-							}
-							
-							mp -= 2;
-						
+								continue; }
+							mp -= 1;
 							if (name == "들개")
 								sum *= 2;
-						}
-						
+							}
 						case 3 -> {
 							if (level < 7) {
 								System.out.println("레벨이 낮아서 사용할 수 없습니다.");
-								continue;
-							}
-							
-							if (mp < 2) {
+								continue; }
+							if (mp < 1) {
 								System.out.println("MP가 부족합니다.");
-								continue;
-							}
-							
-							mp -= 2;
-							
+								continue; }
+							mp -= 1;
 							if (name == "멧돼지")
 								sum *= 2;
 						}
-						
 						case 4 -> {
 							hit = false;
-							
-							System.out.println("MP가 1 회복되었습니다.");
-							mp += 1;
-							
-							System.out.println("HP가 " + level * 10 + " 회복되었습니다.");
+							System.out.println("HP가 " + level * 15 + " 회복되었습니다.");
 							hp += level * 10;
-							
 							sum = 0;
 						}
 					}
@@ -393,7 +345,6 @@ class Monster {
 
 class PotionStore {
 	Scanner in = new Scanner(System.in);
-	
 	int item = -1;
 	
 	public PotionStore() {
@@ -405,40 +356,34 @@ class PotionStore {
 		System.out.println("5. MP 증강 포션 (10원)");
 		System.out.print("원하시는 물건을 입력하세요. : ");
 	}
-	
+
 	int show(int money, int num) {
 		switch (num) {
 			case 1, 2 -> {
 				if (money >= 30) {
 					System.out.println("구입이 완료되었습니다.");
-				
 					item = num;
 					return money - 30;
 				} else
 					break;
 			}
-			
 			case 3 -> {
-				if (money >= 300) {
+				if (money >= 100) {
 					System.out.println("구입이 완료되었습니다.");
-				
 					item = num;
-					return money - 300;
+					return money - 100;
 				} else
 					break;
 			}
-		
 			case 4, 5 -> {
 				if (money >= 10) {
 					System.out.println("구입이 완료되었습니다.");
-				
 					item = num;
 					return money - 10;
 				} else
 					break;
 			}
 		}
-		
 		System.out.println("돈이 부족합니다.");
 		return money;
 	}
